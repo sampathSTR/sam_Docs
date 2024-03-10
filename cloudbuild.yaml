@@ -34,12 +34,12 @@
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA', '.']
     # args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest', '-t', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest']
+    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
   #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -61,6 +61,6 @@ steps:
 #   logging: 'febin-log'
 
 images:
-  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest'
+  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
 
   
