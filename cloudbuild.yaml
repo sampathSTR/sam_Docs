@@ -40,8 +40,6 @@ steps:
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest']
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -64,6 +62,5 @@ steps:
 
 images:
   - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest'
-  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
 
   
