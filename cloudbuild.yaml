@@ -1,7 +1,7 @@
 # steps:
 #   # Build the Docker image using the Docker Cloud Builder
 #   - name: 'gcr.io/cloud-builders/docker'
-#     args: ['build', '-t', 'REGION-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA', '.']
+#     args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA', '.']
 
 #   # Push the image to Google Artifact Registry
 #   - name: 'gcr.io/cloud-builders/docker'
@@ -34,14 +34,14 @@
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
-    # args: ['build', '-t', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA', '.']
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:latest', '-t', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA', '.']
+    # args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest', '-t', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:latest']
+    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA']
+    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -51,7 +51,7 @@ steps:
       - 'deploy'
       - 'devops-lab2'
       - '--image'
-      - 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:latest'
+      - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest'
       - '--region'
       - 'us-central1'
       - '--platform'
@@ -63,35 +63,7 @@ steps:
 #   logging: 'febin-log'
 
 images:
-  - 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:latest'
-  - 'us-central1-docker.pkg.dev/ci-lab-412213/febin-100912966/devops-lab2:$COMMIT_SHA'
-
-
-
-
-  {
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Effect": "Allow",
-			"Action": [
-				"ec2:DescribeInstances",
-				"ec2:StartInstances",
-				"ec2:StopInstances"
-			],
-			"Resource": "arn:aws:ec2:ca-central-1:846116578401:instance/i-0f4a4eb97ca6f7e7e"
-		},
-		{
-			"Effect": "Allow",
-			"Action": "rds:*",
-			"Resource": "arn:aws:rds:ca-central-1:846116578401:db:stephen-dbr"
-		}
-	]
-}
-
-
-846116578401
-
-Backend-dev - Gaza875790
+  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest'
+  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
 
   
