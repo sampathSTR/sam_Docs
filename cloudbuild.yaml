@@ -40,7 +40,7 @@ steps:
 
   # options:
 #   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
-  logging: 'febin-log'
+  logging: 'shijin-log'
 
 images:
   - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
