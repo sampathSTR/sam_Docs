@@ -1,11 +1,11 @@
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/carbon-cacao-401818/sampathraja-100900613/devops-lab2:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
+    args: ['push', 'us-central1-docker.pkg.dev/carbon-cacao-401818/sampathraja-100900613/devops-lab2:$COMMIT_SHA']
 
 #options:
   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
@@ -20,7 +20,7 @@ steps:
       - 'deploy'
       - 'devops-lab2-shijin'
       - '--image'
-      - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
+      - 'us-central1-docker.pkg.dev/carbon-cacao-401818/sampathraja-100900613/devops-lab2:$COMMIT_SHA'
       - '--region'
       - 'us-central1'
       - '--platform'
@@ -34,6 +34,6 @@ steps:
 
 
 images:
-  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
-  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/carbon-cacao-401818/sampathraja-100900613/devops-lab2:$COMMIT_SHA'
+
 
