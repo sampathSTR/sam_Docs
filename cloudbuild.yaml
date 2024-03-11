@@ -38,10 +38,10 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
 
-  # options:
-#   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
-  - logging: 'shijin-log'
-
+options:
+  # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
+  logging: 'REGIONAL_USER_OWNED_BUCKET'
+  
 images:
   - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA'
 
