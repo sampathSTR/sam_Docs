@@ -28,9 +28,6 @@
 
 # images:
 #   - 'REGION-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA'
-
-
-
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
@@ -41,22 +38,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:$COMMIT_SHA']
 
-  # Deploy the container to Google Cloud Run
-  #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-   # entrypoint: 'gcloud'
-   # args:
-    #  - 'run'
-     # - 'deploy'
-      #- 'devops-lab2'
-    #  - '--image'
-    #  - 'us-central1-docker.pkg.dev/lab1-412323/shijin-100913453/devops-lab2:latest'
-    #  - '--region'
-    #  - 'us-central1'
-    #  - '--platform'
-    #  - 'managed'
-    #  - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
-
-# options:
+  # options:
 #   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
 #   logging: 'febin-log'
 
